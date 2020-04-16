@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Listing</title>
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+<h1>Message List</h1>
+<a href="/add">Add a Message</a><br/>
+<table>
+    <tr>
+        <th>Message</th>
+        <th>Sent By</th>
+        <th>Posted date</th>
+        <th>Content</th>
+    </tr>
+    <tr th:each="message : ${messages}">
+        <td th:text="${message.msg}"></td>
+        <td th:text="${message.sentby}"></td>
+        <td th:text="${message.posteddate}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${message.id})}">Update</a>
+            <a th:href="@{/detail/{id}(id=${message.id})}">Details</a>
+            <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

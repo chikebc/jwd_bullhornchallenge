@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Messages</title>
+</head>
+<body>
+<a href="/">Show All Messages</a> <br/>
+Message :<span th:text="${msg.title}" ></span> <br/>
+Sent By :<span th:text="${msg.sentby}" ></span> <br/>
+Content :<span th:text="${msg.content}" ></span> <br/>
+Posted Date :<span th:text="${msg.posteddate}" ></span> <br/>
+<a th:href="@{/delete/{id}"(id="${msg.id})}" >Delete This Message</a>
+</body>
+</html>

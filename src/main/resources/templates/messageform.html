@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Message Form</title>
+</head>
+<body>
+<div th:replace="base :: navlinks"></div>
+<form action="#" th:action="@{/process}" th:object="${messages}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    Message :<input type="text" th:field="*{msg}" />
+    <span th:if="${#fields.hasErrors('msg')}" th:errors="*{msg}"></span> <br/>
+    Sent By :<input type="text" th:field="*{sentby}" />
+    <span th:if="${#fields.hasErrors('sentby')}" th:errors="*{sentby}"></span> <br/>
+    CONTENT :<textarea rows="3" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span> <br/>
+    Posted Date :<input type="text" th:field="*{posteddate}" />
+    <span th:if="${#fields.hasErrors('posteddate')}" th:errors="*{posteddate}"></span> <br/>
+
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
